@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Notas de la Universidad</title>
+    <link>https://example.com/categories/</link>
+    <description>Recent content in Categories on Notas de la Universidad</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 31 Mar 2023 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Basura</title>
+      <link>https://example.com/categories/basura/</link>
+      <pubDate>Fri, 31 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/categories/basura/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Notas</title>
+      <link>https://example.com/categories/notas/</link>
+      <pubDate>Fri, 31 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/categories/notas/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

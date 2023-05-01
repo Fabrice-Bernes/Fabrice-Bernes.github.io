@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<title>Notas de la Universidad  | Instalar Arch</title>
+	<meta name="viewport" content="width=device-width,minimum-scale=1">
+	<meta name="generator" content="Hugo 0.111.3">
+	
+	
+	<META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+	
+
+	
+	
+	<link href="/dist/app.css" rel="stylesheet">
+	
+
+	
+
+	
+	
+<link rel="shortcut icon" href="https://example.com/img/favicon.svg" type="image/png" />
+
+
+	
+
+	
+	
+	
+	
+	
+	
+
+
+
+<link rel="stylesheet" href='https://example.com/lib/katex.min.css' crossorigin="anonymous">
+
+
+<script defer src='https://example.com/lib/katex.min.js' crossorigin="anonymous"></script>
+
+
+<script defer src='https://example.com/lib/contrib/auto-render.min.js'
+crossorigin="anonymous"
+onload='renderMathInElement(document.body);'></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+            delimiters: [
+                {left: "$$", right: "$$", display: true},
+                {left: "$", right: "$", display: false}
+            ]
+        });
+    });
+</script>
+
+	
+	
+	
+	
+	<style type="text/css" media="screen, print">
+		@font-face {
+			font-family: "FancyTitleFont";
+			font-style: normal;
+			font-display: swap;
+			src: url('https://example.com/fonts/PxPlus_IBM_VGA_8x16.ttf.woff2') format('woff2'),
+				url('https://example.com/fonts/PxPlus_IBM_VGA_8x16.ttf.woff') format('woff');
+		}
+		 
+		  
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 300;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Light'), local('NotoSerifCJK-Light'),
+				url('https://example.com/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff2') format('woff2'),
+				 
+				url('https://example.com/fonts/noto-serif-sc-v7-latin_chinese-simplified-300.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 400;
+			font-display: swap;
+			src: local('Noto Serif CJK SC'), local('NotoSerifCJK-Regular'),
+				url('https://example.com/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff2') format('woff2'),
+				 
+				url('https://example.com/fonts/noto-serif-sc-v7-latin_chinese-simplified-regular.woff') format('woff');
+			 
+		}
+
+		 
+		@font-face {
+			font-family: 'Noto Serif CJK SC';
+			font-style: normal;
+			font-weight: 500;
+			font-display: swap;
+			src: local('Noto Serif CJK SC Medium'), local('NotoSerifCJK-Medium'),
+				url('https://example.com/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff2') format('woff2'),
+				 
+				url('https://example.com/fonts/noto-serif-sc-v7-latin_chinese-simplified-500.woff') format('woff');
+			 
+		}
+	</style>
+	
+</head>
+
+<body class="bg-gray-100 text-gray-700 font-sans">
+	<div class="p-6 sm:p-10 md:p-16 flex flex-wrap">
+		<header class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-1 md:order-1 max-w-2xl">
+			<div
+				class="z-50 bg-gray-100 bg-opacity-75 bg-opacity-custom lg:min-w-0.7 max-w-xl md:float-right md:text-right leading-loose tracking-tight md:sticky md:top-0 pt-2">
+				
+<div>
+	<h2>
+		<a href="https://example.com/" title="Notas de la Universidad" class="heading font-cursive icon">Notas de la Universidad</a>
+	</h2>
+</div>
+<h1 class="pt-2">Instalar Arch</h1>
+
+<h3 class="text-java-700 font-normal leading-relaxed pt-2">Guía para una instalación mínima de Arch Linux</h3>
+
+<div class="flex flex-wrap justify-end pt-2 "><div class="md:flex-grow-0 font-light">
+	
+	
+	
+	
+	<a class="post-taxonomy-category text-medium-red-violet-600 hover:text-medium-red-violet-400"
+		href='/categories/notas'>Notas</a>
+	
+	
+	
+
+	
+	&nbsp;&nbsp;
+	
+
+	
+	
+	
+	
+	<a class="post-taxonomy-tag text-eucalyptus-500"
+		href='/tags/linux'>Linux</a>
+	
+	
+	
+</div><time class="text-eucalyptus-500 md:text-right md:flex-grow font-light pl-4"
+		datetime="2023-03-31T00:00:00Z">2023-3-31</time>
+</div>
+
+<details class="toc" open>
+<summary>
+    <hr />
+</summary>
+<div class="inline toc-content">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#antes-que-nada">Antes que nada</a></li>
+    <li><a href="#modos-de-arranque">Modos de arranque</a></li>
+    <li><a href="#sobre-la-fecha-y-hora">Sobre la fecha y hora</a></li>
+    <li><a href="#particionar-discos">Particionar discos</a></li>
+    <li><a href="#montar-el-sistema-de-archivos">Montar el sistema de archivos</a></li>
+    <li><a href="#pacstrap">pacstrap</a></li>
+    <li><a href="#fstab">fstab</a></li>
+    <li><a href="#saliendo-del-medio-de-instalación-y-entrando-al-sistema-operativo">Saliendo del medio de instalación, y entrando al sistema operativo</a></li>
+    <li><a href="#zona-horaria">Zona horaria</a></li>
+    <li><a href="#localización-geográfica">Localización geográfica</a></li>
+    <li><a href="#hostname">Hostname</a></li>
+    <li><a href="#usuarios-y-contraseñas">Usuarios y contraseñas</a></li>
+    <li><a href="#instalar-grub-y-usar-os-prober14">Instalar GRUB y usar os-prober</a></li>
+    <li><a href="#networkmanager">NetworkManager</a></li>
+    <li><a href="#disposición-de-teclado">Disposición de teclado</a></li>
+  </ul>
+</nav>
+</div>
+</details>
+
+<hr />
+
+
+			</div>
+		</header>
+		<main role="main" class="w-full md:w-3/5 xl:w-1/2 max-w-3xl order-2 md:order-2 min-h-70vh pt-2 pb-4">
+			
+
+<article>
+	<section class="mx-auto content">
+		<div class="c-rich-text"><p><strong>Nota:</strong> Esta guía la escribí hace mucho y puede tener errores o poco detalle en partes importantes.</p>
+<h2 id="antes-que-nada">Antes que nada</h2>
+<ul>
+<li>
+<p>Arrancar <code>archiso x86_64</code>. Se inicia sesión como <code>root</code> por defecto (arrancar <code>archiso x86_64</code> inicia una sesión con los máximos permisos)<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup></p>
+</li>
+<li>
+<p>Comprobar que estamos conectados a internet haciendo:</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ping archlinux.org
+</span></span></code></pre></div><p>Si la computadora recibe datos, entonces sí estamos. Podemos terminar la prueba con <strong>Ctrl+c</strong><sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup>. Ahora empieza la instalación.</p>
+<ul>
+<li>Para evitar problemas, escogemos la disposición de teclado adecuada, asignando al programa <code>loadkeys</code> el archivo relevante (<em>e.g.</em> <code>loadkeys de-latin1</code>)<sup id="fnref:3"><a href="#fn:3" class="footnote-ref" role="doc-noteref">3</a></sup>.</li>
+</ul>
+<p>Para ver la lista de disposiciones de teclado hacemos</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls /usr/share/kbd/keymaps/**/*.map.gz
+</span></span></code></pre></div><p>Nótese que omitimos la ruta hacia el archivo <code>de-latin1.map.gz</code> y omitimos también su extensión<sup id="fnref:4"><a href="#fn:4" class="footnote-ref" role="doc-noteref">4</a></sup>.</p>
+<h2 id="modos-de-arranque">Modos de arranque</h2>
+<p>Debemos revisar si la computadora arranca en modo  <strong>BIOS, UEFI,</strong> o <strong>CSM</strong>. Esto determinará algunas de las características de la instalación, como las referentes a la llamada <em>partición de arranque</em>, entre otras cosas.</p>
+<p>Para saber en qué modo estamos, corremos <code>ls</code> así:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls /sys/firmware/efi/efivars
+</span></span></code></pre></div><p>Si podemos ver tal directorio sin ningún error, entonces la compu arranca en modo <strong>UEFI</strong>. Esto implica que <code>Archiso</code> usó <code>systemd-boot</code> (un gestor de arranque) para cargar el kernel y disco <strong>RAM</strong> inicial (initrd)<sup id="fnref:5"><a href="#fn:5" class="footnote-ref" role="doc-noteref">5</a></sup>.</p>
+<p>Según el modo (<strong>UEFI, BIOS</strong>) en que arranque la compu, tendremos que particionar el disco de manera adecuada:</p>
+<ul>
+<li>Formato <strong>MBR</strong> (Master Boot Record) si la compu inicia en modo <strong>BIOS</strong>.</li>
+<li>Formato <strong>GPT</strong> (Global Partition Table) si la compu inica en modo <strong>UEFI</strong>.</li>
+</ul>
+<p>Además, habrá que respetar las limitaciones de dichos formatos, como el tamaño máximo de una partición, etc.</p>
+<p>Aquí haremos un disco particionado para funcionar (arrancar, iniciar) en un sistema <strong>UEFI</strong>.</p>
+<h2 id="sobre-la-fecha-y-hora">Sobre la fecha y hora</h2>
+<p>El <em>servicio</em> <sup id="fnref:6"><a href="#fn:6" class="footnote-ref" role="doc-noteref">6</a></sup> <code>timedatectl</code> controla la fecha y hora del sistema. Para sincronizarlo con la red, hacemos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>timedatectl set-ntp <span style="color:#111">true</span>
+</span></span></code></pre></div><p>Luego revisamos que sí esté sincronizado con:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>timedatectl status
+</span></span></code></pre></div><p>Más tarde escogeremos una zona horaria.</p>
+<h2 id="particionar-discos">Particionar discos</h2>
+<p>Ya podemos preparar el disco que tendrá ArchLinux. Esto lo haremos con el programa <code>fdisk</code>.</p>
+<ul>
+<li>Primero vemos los discos que hay conectados:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fdisk -l
+</span></span></code></pre></div><ul>
+<li>El disco 0 sería <code>sda</code>, el disco 1 sería <code>sdb</code>, etc. Hay <code>sda</code>, <code>sdb</code>, <code>sdc</code>, &hellip; , <code>sdx</code>.</li>
+<li>Todas las particiones del disco <code>sdx</code> son <code>sdx1</code>, <code>sdx2</code>, &hellip; , <code>sdxn</code>.</li>
+</ul>
+<p>Cuando decidamos en qué disco queremos trabajar, lo seleccionamos. Aquí como ejemplo trabajaremos con <code>sda</code>, pero este puede no ser el caso. <strong>SIEMPRE hay que revisar las cosas 2 veces</strong> cuando se trabaja con <code>fdisk</code>.</p>
+<blockquote>
+<p><strong>SIEMPRE hay que revisar las cosas 2 veces</strong> cuando se trabaja con <code>fdisk</code>.</p>
+</blockquote>
+<p>Para seleccionar <code>sda</code> (como ejemplo):</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fdisk /dev/sda
+</span></span></code></pre></div><p>Ahora prepararemos la <strong>partición de sistema EFI</strong>. Se recomienda hacerla de <code>512Mb</code>. Es conveniente revisar sus requisitos, riesgos y limitaciones.</p>
+<ul>
+<li>
+<p>Escribimos <code>n</code> para hacer una nueva partición.</p>
+</li>
+<li>
+<p>Escogemos el número que tendrá dicha partición. La convención es seguir un orden ascendente; es decir, si <code>sda</code> ya tenía <code>sda1</code> y <code>sda2</code>, lo más estándar será nombrar a la siguiente partición con un 3.</p>
+</li>
+<li>
+<p>Si presionamos <code>Enter</code> sin haber dado un número, <code>fdisk</code> usará el número indicado como <code>&lt;&lt;default&gt;&gt;</code>.</p>
+</li>
+<li>
+<p>Escogemos también el primer sector. Nuevamente, si no se da un arcumento, se usará la propuesta <code>&lt;&lt;default&gt;&gt;</code>.</p>
+</li>
+<li>
+<p>Lo mismo sucede con el último sector. Pero obviamente, el tamaño de la partición creada será la diferencia del sector final menos el sector inicial.</p>
+</li>
+</ul>
+<p>Para hacer que el último sector de la partición esté <code>512Mb</code> después que el primero, escribimos <code>+512M</code> y presionamos Enter</p>
+<p><code>fdisk</code> suele hacer las particiones del tipo <strong>Linux filesystem</strong>. Pero queríamos una partición de tipo <code>EFI</code>. Habrá que cambiar el tipo.</p>
+<ul>
+<li>
+<p>Presionamos <code>t</code>. <code>fdisk</code> pregunta por el número de la partición cuyo tipo queremos cambiar.</p>
+</li>
+<li>
+<p>Una vez especificado el número de la partición, presionamos <code>L</code> para tener un listado con los tipos de particiones. La lista es muy larga. Podemos presionar <code>q</code> para salir de ella.</p>
+</li>
+<li>
+<p>Cuando encontramos el número en la lista para el tipo de formato que buscamos, salimos de la lista y damos dicho número a <code>fdisk</code>.</p>
+</li>
+<li>
+<p>Ahora comprobamos que la partición sea tal como la queríamos al principio listando las particiones con <code>p</code></p>
+</li>
+</ul>
+<hr>
+<p>De manera similar, creamos una partición grande para el directorio raíz, del tipo <strong>Linux Filesystem</strong>, y otra partición del tipo <strong>Linux swap</strong> en el espacio restante (al menos 2Gb).</p>
+<hr>
+<p>Revisamos todo lo que hicimos con <code>p</code>, y <strong>SÓLO SI ES CORRECTO</strong>, aplicamos los cambios con <code>w</code>. <strong>NO HAY VUELTA ATRÁs</strong>.</p>
+<blockquote>
+<p>Luego de correr el comando <code>w(rite)</code> en <code>fdisk</code>, los cambios en el disco son <strong>IRREVERSIBLES</strong>.</p>
+</blockquote>
+<p>Se pueden hacer particionados más complejos, pero por ahora esto está bien. Deberíamos tener:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</th>
+<th style="text-align:center">&ndash;512M&ndash;</th>
+<th style="text-align:center">&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;$\geq$ 10Gb&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;&ndash;</th>
+<th style="text-align:center">&mdash;&ndash;$\geq$ 2Gb&mdash;&ndash;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Part. de Win si se hace dual-boot</td>
+<td style="text-align:center">EFI</td>
+<td style="text-align:center">Sistema Linux</td>
+<td style="text-align:center">Swap</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Ahora nos aseguramos de que la partición de sistema <strong>EFI</strong> tenga un formato  <strong>FAT32</strong> así:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkfs.fat -F32 /dev/sdxn
+</span></span></code></pre></div><p>Reemplazando <code>sdxn</code> con el disco y partición relevantes (<em>e.g.</em> <code>sdb3</code>)</p>
+<ul>
+<li>Le indicamos a Arch que nuestra partición tipo <strong>SWAP</strong> será en efecto nuestra <em>área de trasiego</em> con <code>mkswap</code> :</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkswap /dev/sdxn
+</span></span></code></pre></div><ul>
+<li>y la iniciamos con <code>swapon</code> :</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>swapon /dev/sdxn
+</span></span></code></pre></div><ul>
+<li>Nos encargamos también de que la partición del <strong>Sistema Linux</strong> tenga un formato <strong>Ext4</strong> :</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkfs.ext4 /dev/sdxn
+</span></span></code></pre></div><p>Todo está listo para que arch pase al disco duro. Vamos a <em>montar</em> el sistema de archivos que hemos creado (la partición de Sistema Linux $\geq$ 10Gb).</p>
+<h2 id="montar-el-sistema-de-archivos">Montar el sistema de archivos</h2>
+<p>Con <em>montar</em> queremos decir:</p>
+<blockquote>
+<p>hacer una partición accesible a Arch asignándole un archivo (el <em>punto de montaje</em>) en el árbol de directorios.</p>
+</blockquote>
+<p>Para ello usamos <code>mount</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mount /dev/sdxn /mnt
+</span></span></code></pre></div><p>Donde <code>sdxn</code> es la partición del sistema y se ha montado como <code>/mnt</code></p>
+<ul>
+<li>Creamos un directorio <code>boot</code> en ese punto de montaje:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir mnt/boot
+</span></span></code></pre></div><ul>
+<li>Y montaremos la partición de sistema EFI ahí:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mount /dev/sdxn /mnt/boot
+</span></span></code></pre></div><p>Donde <code>sdxn</code> es la partición de sistema EFI.</p>
+<p>Comprobamos que ambas particiones estén montadas en los directorios correctos con <code>df</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>df
+</span></span></code></pre></div><p>En la columna <code>Filesystem</code> buscamos dichas particiones, y en la columna <code>Mounted on</code> estarán los puntos de montaje que hemos asignado:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>Filesystem     1K-blocks     Used Available Use% Mounted on
+</span></span><span style="display:flex;"><span>dev              <span style="color:#ae81ff">8151048</span>        <span style="color:#ae81ff">0</span>   <span style="color:#ae81ff">8151048</span>   0% /dev
+</span></span><span style="display:flex;"><span>run              <span style="color:#ae81ff">8159992</span>     <span style="color:#ae81ff">1072</span>   <span style="color:#ae81ff">8158920</span>   1% /run
+</span></span><span style="display:flex;"><span>/dev/sda2      <span style="color:#ae81ff">939144724</span> <span style="color:#ae81ff">97067796</span> <span style="color:#ae81ff">794297244</span>  11% /
+</span></span><span style="display:flex;"><span>tmpfs            <span style="color:#ae81ff">8159992</span>    <span style="color:#ae81ff">20124</span>   <span style="color:#ae81ff">8139868</span>   1% /dev/shm
+</span></span><span style="display:flex;"><span>/dev/sda1         <span style="color:#ae81ff">523244</span>    <span style="color:#ae81ff">99588</span>    <span style="color:#ae81ff">423656</span>  20% /boot
+</span></span><span style="display:flex;"><span>tmpfs            <span style="color:#ae81ff">8159996</span>     <span style="color:#ae81ff">7448</span>   <span style="color:#ae81ff">8152548</span>   1% /tmp
+</span></span><span style="display:flex;"><span>tmpfs            <span style="color:#ae81ff">1631996</span>       <span style="color:#ae81ff">16</span>   <span style="color:#ae81ff">1631980</span>   1% /run/user/1000
+</span></span></code></pre></div><p>Buscamos tener <code>/mnt</code> para la partición de Sistema Linux, y <code>/mnt/boot</code> para la partición de Sistema EFI.</p>
+<p>Ahora que Arch tiene acceso a esas particiones (pues ya tienen un lugar en el árbol de directorios) vamos a instalar los paquetes esenciales con <code>pacstrap</code>.</p>
+<h2 id="pacstrap">pacstrap</h2>
+<p><code>pacstrap</code> es una herramienta para instalar Arch. No debe confundirse con <code>pacman</code>, que se instala con <code>pacstrap</code> y sirve como administrador de paquetes una vez que estamos en Arch (ahora mismo estamos en ArchIso o algo así).</p>
+<ul>
+<li>Instalamos el paquete <code>base</code>, el paquete <code>linux</code>, y el paquete <code>linux-firmware</code>. Todos ellos en <code>/mnt</code> :</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacstrap /mnt base linux linux-firmware
+</span></span></code></pre></div><p>En realidad son grupos de paquetes, no paquetes individuales.</p>
+<p>Al terminar la instalación, generamos el archivo de configuración del sistema <code>fstab</code>.</p>
+<h2 id="fstab">fstab</h2>
+<p><code>fstab</code> contiene las características de todos los dispositivos de almacenamiento, como sus <strong>UUID&rsquo;s</strong>, sus opciones de montaje, y sus permisos. Este archivo estará en <code>/etc/fstab</code>, y para generarlo usaremos <code>genfstab</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</span></span></code></pre></div><ul>
+<li>Con esta línea le pedimos a <code>genfstab</code> que revise las particiones puestas en <code>/mnt</code> (esto es, desde ahí hasta el final de la jerarquía en el árbol de directorios), que use los <strong>UUID&rsquo;s</strong>, y que el resultado (la salida, el output) sea escrito en el archivo <code>/mnt/etc/fstab</code>.</li>
+</ul>
+<p>Podemos abrir el archivo de salida con <code>vi</code>, sólo para comprobar que se ve correcto:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vim /mnt/etc/fstab
+</span></span></code></pre></div><p>Salimos de vi con <code>q!</code>. Si estamos en modo edición, primero presionamos <code>ESC</code> y luego escribimos <code>:q!</code> para salir sin guardar cambios que hayamos hecho por accidente.</p>
+<blockquote>
+<p>Ya tenemos Arch instalado en el disco, listo para arrancar, pero no configurado.</p>
+</blockquote>
+<h2 id="saliendo-del-medio-de-instalación-y-entrando-al-sistema-operativo">Saliendo del medio de instalación, y entrando al sistema operativo</h2>
+<p>Hasta ahora, el prompt de la consola aún dice:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>root@archiso~ <span style="color:#75715e">#</span>
+</span></span></code></pre></div><p>Donde el signo <code>#</code> indica que la terminal está lista (y esperando) para recibir comandos dados por <strong>root</strong>, el superusuario o usuario raíz, así que no es necesario correr las cosas con <code>sudo</code> o pedirle privilegios al sistema por otros medios.</p>
+<p>El <code>#</code> sería reemplazado por un <code>$</code> si estuviéramos haciendo cosas como un usuario estándar (y tendríamos que usar <code>sudo</code> para cuestiones administrativas, a menos que iniciemos una nueva sesión como usuario-raíz).</p>
+<p>Pero lo importante ahora mismo es que el usuario raíz está en el sistema con hostname <code>archiso</code>. Es decir, el USB de instalación, y no la computadora misma<sup id="fnref:7"><a href="#fn:7" class="footnote-ref" role="doc-noteref">7</a></sup>.</p>
+<p>Tenemos entonces que cambiar el directorio raíz con <code>arch-chroot</code>. Queremos que nuestro nuevo directorio raíz (el nivel más alto en la jerarquía del árbol de directorios) de todo Arch sea <code>/mnt</code>. Hacemos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>arch-chroot /mnt
+</span></span></code></pre></div><p>Ya estamos trabajando en un sistema operativo, pero no tenemos mucho más. <code>/mnt</code> ahora es sólo <code>/</code>. Vamos a configurar algunas de las cosas más esenciales.</p>
+<h2 id="zona-horaria">Zona horaria</h2>
+<p>Queremos crear un <strong>enlace simbólico</strong><sup id="fnref:8"><a href="#fn:8" class="footnote-ref" role="doc-noteref">8</a></sup> desde <code>/usr/share/zoneinfo/Mexico/General</code> o el archivo adecuado (revisar con <code>ls</code> o con la completición automática con <code>TABULADOR</code>) hacia <code>/etc/localtime</code>. Para ello usamos <code>ln</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ln -sf /usr/share/zoneinfo/Mexico/General /etc/localtime
+</span></span></code></pre></div><p>El flag <code>-s</code> y <code>-f</code> se pueden combinar como <code>-sf</code>. La s es de de <em>softlink</em>, y la f de  <em>file</em>. No tengo idea de lo que significan esos flags y me da flojera revisar eso.</p>
+<p>Ahora sincronizamos el reloj del sistema con el reloj de la mobo<sup id="fnref:9"><a href="#fn:9" class="footnote-ref" role="doc-noteref">9</a></sup> así:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hwclock --systohc
+</span></span></code></pre></div><p><em>hc</em> viene de <em>hardware clock</em>.</p>
+<p>También queremos activar el <code>locale</code> necesario para tener la localización geográfica y codificación de caracteres adecuados.</p>
+<h2 id="localización-geográfica">Localización geográfica</h2>
+<p>La idea de configurar un locale es que todos los programas instalados y sitios web sepan sobre nuestras preferencias de idioma y charset (mapas de caracteres, que incluyen acentos y símbolos. Cirílico para Rusia, kanji para Japón, abjad para Arabia, etc).</p>
+<p>Para activar el locale que queremos usar, necesitamos <code>locale-gen</code>. Pero primero debemos modificar el archivo <code>/etc/locale.gen</code> con un editor de texto.</p>
+<p>Anteriormente usamos <code>vi</code> para revisar el contenido del archivo <code>fstab</code>. Pero <code>vi</code> estaba en el iso del medio de instalación. Ya no lo tenemos ahora que estamos en nuestro propio sistema, con su propia raíz y sus dependencias básicas instaladas.</p>
+<p>Entre esas dependencias está <code>pacman</code>, que podemos usar para instalar <code>vim</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -Sy vim
+</span></span></code></pre></div><p>Ahora, con <code>vim</code> instalado, abrimos el archivo de configuración para <code>locale-gen</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vim /etc/locale.gen
+</span></span></code></pre></div><p>Para habilitar un locale, <strong>descomentamos</strong> el nombre de tal locale. Podemos buscar cadenas de texto haciendo <code>/cadena</code>, reemplazando <em>cadena</em> con lo que buscamos.</p>
+<p>Probemos buscando y descomentando <code>en_US.UTF-8 UTF-8</code> o <code>es_MX.UTF-8 UTF-8</code> (o ambos!). Presionamos <code>esc</code> para salir del modo <code>insert</code>, y luego escribirmos <code>:x</code> para guardar y salir.</p>
+<p>Ahora corremos <code>locale-gen</code> así:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>locale-gen
+</span></span></code></pre></div><p>Ya que generamos los locales, abrimos <code>/etc/locale.conf</code> con vim:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vim /etc/locale.conf
+</span></span></code></pre></div><p>Y escribimos la siguiente línea:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#111">LANG</span><span style="color:#f92672">=</span>en_US.UTF-8
+</span></span></code></pre></div><p>para que el lenguaje del sistema sea inglés<sup id="fnref:10"><a href="#fn:10" class="footnote-ref" role="doc-noteref">10</a></sup>.</p>
+<h2 id="hostname">Hostname</h2>
+<p>El Hostname es el nombre que nuestra computadora reporta a la red local. No confundir con su IP. Redes grandes usan nombres con UUID&rsquo;S<sup id="fnref:11"><a href="#fn:11" class="footnote-ref" role="doc-noteref">11</a></sup>, pero podemos usar cualquier nombre (<em>e.g.</em> Poderosísimo_Servidor).</p>
+<p>Si Queremos un UUID, podemos usar <code>uuidgen</code>, o ver qué propone el OS en <code>/etc/machine-id</code>.</p>
+<h2 id="usuarios-y-contraseñas">Usuarios y contraseñas</h2>
+<p>Hacemos una contraseña para el usuario <code>root</code>, el cual estamos usando actualmente:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>passwd
+</span></span></code></pre></div><p>Y damos la nueva contraseña.</p>
+<p>Ahora añadimos un nuevo usuario &ldquo;daquavious&rdquo;:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>useradd -g users -G power,storage -m daquavious
+</span></span></code></pre></div><p><code>-g</code> es para el grupo, <code>-G</code> es para el(los) subgrupo(s). Todo usuario pertenece a un grupo y cero o más subgrupos.</p>
+<p><code>-m</code> sirve para crear un <em>directorio hogar</em>. En este caso, se va a crear <code>/home/daquavious</code>.</p>
+<p>Si quisiéramos un nombre de usuario con mayúsculas<sup id="fnref:12"><a href="#fn:12" class="footnote-ref" role="doc-noteref">12</a></sup>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>useradd -g users -G power,storage -m Daquavious --force-badname
+</span></span></code></pre></div><p>Para darle (o cambiarle) una contraseña a <code>daquavious</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>passwd daquavious
+</span></span></code></pre></div><p>Y para cambiar su nombre de <code>daquavious</code> a <code>bingleton</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>usermod -l bingleton daquavious
+</span></span></code></pre></div><p>También vamos a hacer un usuario <code>invitado</code><sup id="fnref:13"><a href="#fn:13" class="footnote-ref" role="doc-noteref">13</a></sup> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>useradd -g user -m invitado
+</span></span></code></pre></div><p>Para que <code>invitado</code> no tenga contraseña:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>passwd -d invitado
+</span></span></code></pre></div><h2 id="instalar-grub-y-usar-os-prober14">Instalar GRUB y usar os-prober<sup id="fnref:14"><a href="#fn:14" class="footnote-ref" role="doc-noteref">14</a></sup></h2>
+<p>Instalamos <code>grub</code> y <code>efibootmgr</code> :</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S grub efibootmgr
+</span></span></code></pre></div><p>También <code>os-prober</code> para encontrar y añadir a <code>grub.cfg</code> la partición de inicio de Windows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S os-prober
+</span></span></code></pre></div><p>Probamos que os-prober funcione corriendo el comando <code>os-prober</code> y esperando que no se muestre ningún error.</p>
+<p>Ahora sí, instalamos GRUB (<em>i.e.</em> lo convertimos en nuestro gestor de arranque, el <em>bootloader</em>) especificando la arquitectura de nuestro CPU, el directorio de instalación, y el identificador de GRUB:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grub-install --target<span style="color:#f92672">=</span>x86_64-efi --efi-directory<span style="color:#f92672">=</span>/boot/ --bootloader-id<span style="color:#f92672">=</span>GRUB2
+</span></span></code></pre></div><p>La elección del identificador es libre, pero el nombre <strong>GRUB2</strong> tiene sentido.</p>
+<p>Hay que montar la partición que contiene el bootloader de windows para que <code>os-prober</code> la detecte. Para ello listamos todos los discos y particiones que existen en el sistema:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fdisk -l
+</span></span></code></pre></div><p>y cuando la encontremos (supongamos que es <code>sdxn</code>):</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mount /dev/sdxn /mnt2
+</span></span></code></pre></div><p>Si el punto de montaje (en este caso <code>mnt2</code>) no existe, lo creamos antes de montar con:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir /mnt2
+</span></span></code></pre></div><p>Creamos automáticamente (se puede hacer manualmente) una configuración para grub:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grub-mkconfig -o /boot/grub/grub.cfg
+</span></span></code></pre></div><p>Revisamos que se encuentre y cree una entrada de <code>Windows Boot Manager</code>.</p>
+<p>Si ha funcionado, tenemos un dual-boot exitoso, pero la próxima vez que iniciemos Arch (ahora sí, sin el medio de instalación), no podremos descargar paquetes, porque no hemos configurado la red. Es conveniente hacerlo antes de reiniciar el equipo.</p>
+<h2 id="networkmanager">NetworkManager</h2>
+<p>Se puede configurar lo referente al adaptador de internet con mucho detalle, pero de momento, dejamos que <code>networkmanager</code> lo haga. Debemos instalarlo:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pacman -S networkmanager
+</span></span></code></pre></div><p>Y debemos hacer que arranque siempre que se inicie arch:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>systemctl <span style="color:#111">enable</span> NetworkManager
+</span></span></code></pre></div><p>Las mayúsculas importan.</p>
+<h2 id="disposición-de-teclado">Disposición de teclado</h2>
+<p>También queremos que Arch siempre cargue la disposición de teclado que escogimos esta sesión cuando usamos <code>loadkeys</code> al inicio de la guía. Para ello, abrimos <code>/etc/vconsole.conf</code> con un editor de texto (como siempre, vim está bien), y escribimos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#111">KEYMAP</span><span style="color:#f92672">=</span>la-latin1
+</span></span></code></pre></div><p>para un teclado latinoamericano<sup id="fnref:15"><a href="#fn:15" class="footnote-ref" role="doc-noteref">15</a></sup>.</p>
+<p>Con todo lo anterior ya podemos salir de arch con <code>exit</code> para regresar al medio de instalación, y apagar el equipo con <code>shutdown now</code> o reiniciar con <code>reboot</code>. Luego quitamos el USB con la ISO de Arch y comprobamos que la mobo arranque GRUB, y que GRUB nos muestre entradas para Linux y para Windows como se debe.</p>
+<p>Por último, dejo aquí un pdf.
+Si no lo puedes leer desde aquí,</p>
+
+  <a href="master.pdf" download>Descárgalo haciéndo click aquí</a>
+<embed src= "master.pdf" width= "100%" height= "1000px" type="application/pdf" >
+
+<div class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1">
+<p><em>¿No es un riesgo permitir que alguien con un USB pueda arrancar un OS con máximos permisos?</em></p>
+<blockquote>
+<p>Sí. Pero si esa persona tuvo permiso para poner un usb en un puerto y además arrancar la computadora desde cero, entonces ya es alguien con acceso físico, que es en sí un permiso. Además, las motherboards pueden denegar arranque a OS&rsquo;es que no sepan responder a una clave en la memoria de arranque seguro (secure boot). De hecho para instalar arch, tuve que borrar las claves de arranque seguro porque mi motherboard sólo aceptaba ISO&rsquo;s firmadas por Microsoft</p>
+</blockquote>
+&#160;<a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></li>
+<li id="fn:2">
+<p><strong>Ctrl+C</strong> envía una señal al proceso que estaba escuchando al teclado. Esta señal es <strong>SIGINT</strong>. Para más sobre señales, ver <em>TODO:señales.md</em>&#160;<a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:3">
+<p>La distribución de mi teclado funcionó bien con <code>es.map</code>, y aún mejor con <code>latin</code>.&#160;<a href="#fnref:3" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:4">
+<p>De manera similar, la fuente de la consola se cambia con el programa <code>setfont</code>, los archivos de fuentes están en <code>/usr/share/kbd/consolefonts</code>&#160;<a href="#fnref:4" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:5">
+<p>Si no existe ese directorio, la compu arranca en modo <strong>BIOS</strong> o en modo <strong>CSM</strong>, y ArchLinux usó <code>syslinux</code> en vez de <code>systemd-boot</code>. Esta guía la escribí para motherboard con interfaz <strong>UEFI</strong>&#160;<a href="#fnref:5" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:6">
+<p>Un <em>servicio</em> es un proceso que no espera interacciones con el usuario más allá de iniciarlo o detenerlo manualmente; por lo demás, este proceso está bajo su propia dirección o, más comúnmente, bajo la dirección del llamado <em>init system</em>. En nuestro caso, el  <em>init system</em> es <code>systemd</code>. Ver la nota <em>TODO:Systemd</em>&#160;<a href="#fnref:6" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:7">
+<p>La sintaxis del prompt por defecto es <code>username@hostname workingdir #/$</code>. Si vemos <code>root@archiso~ #</code>, sabemos que el usuario llamado <code>root</code> está en la computadora llamada <code>archiso</code> y en el directorio <code>~</code>&#160;<a href="#fnref:7" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:8">
+<p>Los enlaces simbólicos son algo similar a lo que en MSWindows se conoce como &ldquo;acceso directo&rdquo;. Hay mucho que decir al respecto, y tal vez valga la pena escribir una nota (TODO)&#160;<a href="#fnref:8" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:9">
+<p>Motherboard, Tarjeta madre&#160;<a href="#fnref:9" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:10">
+<p>O <code>es_MX.UTF-8</code> para usar español, obviamente. Prefiero inglés porque es el lenguaje en el que se suelen hacer preguntas, enviar logs, etc&#160;<a href="#fnref:10" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:11">
+<p>Universally Unique Identifier&#160;<a href="#fnref:11" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:12">
+<p>Es mala idea hacer nombres con mayúsculas. Usuarios con mayúsculas (<em>e.g.</em> Invitado) sólo crean confusión, pues muchos servicios web no distinguen mayúsculas (<em>e.g.</em> servidores de correo electrónico), y además existen sistemas que conservan ajustes antiguos de la época en que existían teclados/sistemas con sólo mayúsculas. Algunos programas leen una mayúscula y asumen que se está trabajando en un teclado de ese tipo.&#160;<a href="#fnref:12" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:13">
+<p>Hacer que un invitado sea parte de <code>power</code> y <code>storage</code> es una idea estúpida. Le estamos dando el poder de apagar nuestro sistema o crear/borrar archivos que no debería&#160;<a href="#fnref:13" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:14">
+<p>Instrucciones válidas sólo para sistemas UEFI&#160;<a href="#fnref:14" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:15">
+<p>Esta es la distribución de teclado que se usará en las TTY&rsquo;s, y es independiente de la que se use en un entorno gráfico (<em>e.g.</em> X11)&#160;<a href="#fnref:15" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</div>
+</div>
+	</section>
+
+
+</article>
+
+		</main>
+		<div class="w-full h-0 flex-none order-3"></div>
+		<aside role="contentinfo"
+			class="w-full md:w-2/5 xl:w-1/2 md:pr-12 lg:pr-20 xl:pr-24 order-4 md:order-3 md:sticky md:bottom-0 self-end max-w-2xl">
+			<div class="md:float-right md:text-right leading-loose tracking-tight md:mb-2">
+				
+	<div class="md:max-w-xs  flex flex-col md:items-end">
+	<ul class="font-serif flex-grow-0 flex justify-between flex-wrap md:flex-col">
+	
+	
+	<li class="px-1 md:px-0">
+		<a href="/post/" title="Posts page" 
+			class="font-medium text-medium-red-violet-600 hover:text-medium-red-violet-400" >
+			Posts
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/categories/" title="Categorías page" >
+			Categorías
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/tags/" title="Etiquetas page" >
+			Etiquetas
+		</a>
+	</li>
+	
+	<li class="px-1 md:px-0">
+		<a href="/about/" title="Sobre el sitio page" >
+			Sobre el sitio
+		</a>
+	</li>
+	
+	
+	
+	
+</ul>
+	
+
+<div class="flex flex-wrap-reverse md:justify-end content-end md:content-start justify-start items-start   max-h-16">
+	
+	<a href='http://github.com/' target="_blank" class="github icon pl-1 text-eucalyptus-400 hover:text-java-400" title="github link" rel="noopener"
+		aria-label="follow on github——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path fill-rule="nonzero" d="M5.883 18.653c-.3-.2-.558-.455-.86-.816a50.32 50.32 0 0 1-.466-.579c-.463-.575-.755-.84-1.057-.949a1 1 0 0 1 .676-1.883c.752.27 1.261.735 1.947 1.588-.094-.117.34.427.433.539.19.227.33.365.44.438.204.137.587.196 1.15.14.023-.382.094-.753.202-1.095C5.38 15.31 3.7 13.396 3.7 9.64c0-1.24.37-2.356 1.058-3.292-.218-.894-.185-1.975.302-3.192a1 1 0 0 1 .63-.582c.081-.024.127-.035.208-.047.803-.123 1.937.17 3.415 1.096A11.731 11.731 0 0 1 12 3.315c.912 0 1.818.104 2.684.308 1.477-.933 2.613-1.226 3.422-1.096.085.013.157.03.218.05a1 1 0 0 1 .616.58c.487 1.216.52 2.297.302 3.19.691.936 1.058 2.045 1.058 3.293 0 3.757-1.674 5.665-4.642 6.392.125.415.19.879.19 1.38a300.492 300.492 0 0 1-.012 2.716 1 1 0 0 1-.019 1.958c-1.139.228-1.983-.532-1.983-1.525l.002-.446.005-.705c.005-.708.007-1.338.007-1.998 0-.697-.183-1.152-.425-1.36-.661-.57-.326-1.655.54-1.752 2.967-.333 4.337-1.482 4.337-4.66 0-.955-.312-1.744-.913-2.404a1 1 0 0 1-.19-1.045c.166-.414.237-.957.096-1.614l-.01.003c-.491.139-1.11.44-1.858.949a1 1 0 0 1-.833.135A9.626 9.626 0 0 0 12 5.315c-.89 0-1.772.119-2.592.35a1 1 0 0 1-.83-.134c-.752-.507-1.374-.807-1.868-.947-.144.653-.073 1.194.092 1.607a1 1 0 0 1-.189 1.045C6.016 7.89 5.7 8.694 5.7 9.64c0 3.172 1.371 4.328 4.322 4.66.865.097 1.201 1.177.544 1.748-.192.168-.429.732-.429 1.364v3.15c0 .986-.835 1.725-1.96 1.528a1 1 0 0 1-.04-1.962v-.99c-.91.061-1.662-.088-2.254-.485z"/>
+    </g>
+</svg>
+
+		</div>
+	</a>
+	
+	<a href='Fabrice.Bernes@protonmail.com' target="_blank" class="mail icon pl-1 text-eucalyptus-400 hover:text-java-400" title="mail link" rel="noopener"
+		aria-label="follow on mail——Opens in a new window">
+		
+		<div class="fill-current h-8 w-8">
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g>
+        <path fill="none" d="M0 0h24v24H0z"/>
+        <path d="M3 3h18a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm17 4.238l-7.928 7.1L4 7.216V19h16V7.238zM4.511 5l7.55 6.662L19.502 5H4.511z"/>
+    </g>
+</svg>
+		</div>
+	</a>
+	
+</div>
+	<div class="text-sm text-gray-500 leading-tight a-gray">
+		
+		<br />
+		Built with Hugo and theme <a href="https://github.com/heyeshuang/hugo-theme-tokiwa">Tokiwa</a>. 2792 words in this page.
+	</div>
+</div>
+
+			</div>
+		</aside>
+		<footer class="w-full md:w-3/5 xl:w-1/2 order-3 max-w-3xl md:order-4 pt-2">
+			
+<hr class="double-line" />
+<div class="flex flex-wrap justify-between pb-2 leading-loose font-serif">
+    
+    <a class="flex-grow-0" href="/post/prueba/prueba/">
+        <svg class="fill-current inline-block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24"
+            height="24">
+            <path fill="none" d="M0 0h24v24H0z" />
+            <path d="M7.828 11H20v2H7.828l5.364 5.364-1.414 1.414L4 12l7.778-7.778 1.414 1.414z" /></svg>
+        Prueba
+    </a>
+    
+    
+</div>
+<div >
+
+
+
+<div class="font-serif pb-2 flex align-start leading-loose">
+	<span class="heading pr-6 leading-loose">Related</span>
+	<span >
+		
+			<a href="/post/prueba/prueba/">Prueba</a>
+		
+</span>
+</div>
+
+</div>
+<hr />
+<div class="pb-2">
+    
+</div>
+<hr />
+
+		</footer>
+		
+
+<script src="/dist/app.js"></script>
+
+
+	</div>
+</body>
+
+</html>

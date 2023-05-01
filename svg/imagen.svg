@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="15.747541mm"
+   height="31.651726mm"
+   viewBox="0 0 15.747541 31.651726"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="imagen.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.79285915"
+     inkscape:cx="-369.54861"
+     inkscape:cy="421.26019"
+     inkscape:window-width="1920"
+     inkscape:window-height="1062"
+     inkscape:window-x="0"
+     inkscape:window-y="18"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect255"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.00632"
+       smooth_angles="360"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect251"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.00632"
+       smooth_angles="360"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false" />
+    <inkscape:path-effect
+       effect="simplify"
+       id="path-effect247"
+       is_visible="true"
+       lpeversion="1"
+       steps="1"
+       threshold="0.00632"
+       smooth_angles="360"
+       helper_size="0"
+       simplify_individual_paths="false"
+       simplify_just_coalesce="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-54.693677,-53.441748)">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.116825;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;stop-color:#000000"
+       d="m 61.694926,53.50016 c 0.178399,2.310797 -0.377361,4.587952 -0.898522,6.820739 -0.269586,1.154976 -0.532585,2.313915 -0.685601,3.491168"
+       id="path245"
+       inkscape:path-effect="#path-effect247"
+       inkscape:original-d="m 61.694926,53.50016 c 0.267623,3.541744 -1.134284,6.850703 -1.584123,10.311907" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.116825;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;stop-color:#000000"
+       d="m 70.30437,53.806758 c 0.230473,1.251135 -0.07568,2.525261 -0.550076,3.682775 -0.468548,1.143249 -0.952582,2.28189 -1.295727,3.472493 -0.490118,1.700554 -0.826245,3.444404 -1.401362,5.120456"
+       id="path249"
+       inkscape:path-effect="#path-effect251"
+       inkscape:original-d="m 70.30437,53.806758 c 0.39108,2.331049 -0.798905,3.973902 -1.537308,6.163234 -0.674476,1.999814 -1.021715,4.107055 -1.709857,6.11249" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.116825;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;stop-color:#000000"
+       d="m 54.77382,67.517614 c -0.12275,1.707557 0.484848,3.369135 0.304382,5.087519 -0.18762,1.786505 -0.511195,3.588574 -0.189377,5.388636 0.38313,2.143008 1.08964,4.468867 2.795153,5.825858 0.804937,0.640448 1.820701,1.40492 2.853993,1.172413 0.901922,-0.202947 1.525871,-0.994372 2.052734,-1.693776 1.554671,-2.063806 2.706748,-4.393665 3.820878,-6.712208 1.01945,-2.12151 1.915773,-4.300457 2.968218,-6.40636"
+       id="path253"
+       inkscape:path-effect="#path-effect255"
+       inkscape:original-d="m 54.77382,67.517614 c -0.118232,1.404205 0.356228,2.779196 0.349154,4.176051 -0.0082,1.622736 -0.456935,3.231252 -0.389955,4.852624 0.10704,2.591087 1.139825,5.116582 2.78864,7.107953 0.446536,0.53931 2.362473,1.664332 3.305068,1.263576 1.904725,-0.809819 4.328355,-5.891113 4.610142,-6.411944 1.4529,-2.685424 2.576853,-5.593989 3.942932,-8.326178" />
+  </g>
+</svg>

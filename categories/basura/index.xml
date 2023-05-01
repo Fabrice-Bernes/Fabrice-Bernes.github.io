@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Basura on Notas de la Universidad</title>
+    <link>https://example.com/categories/basura/</link>
+    <description>Recent content in Basura on Notas de la Universidad</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 31 Mar 2023 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://example.com/categories/basura/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Prueba</title>
+      <link>https://example.com/post/prueba/prueba/</link>
+      <pubDate>Fri, 31 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://example.com/post/prueba/prueba/</guid>
+      <description>&lt;h2 id=&#34;matemáticas&#34;&gt;Matemáticas&lt;/h2&gt;
+&lt;p&gt;$$\frac{1}{4\pi\epsilon_{0}}$$&lt;/p&gt;
+&lt;h2 id=&#34;imágenes&#34;&gt;Imágenes&lt;/h2&gt;
+&lt;center&gt;
+    &lt;figure&gt;
+    &lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; standalone=&#34;no&#34;?&gt;
+&lt;!-- Created with Inkscape (http://www.inkscape.org/) --&gt;
+
+&lt;svg
+   width=&#34;15.747541mm&#34;
+   height=&#34;31.651726mm&#34;
+   viewBox=&#34;0 0 15.747541 31.651726&#34;
+   version=&#34;1.1&#34;
+   id=&#34;svg5&#34;
+   inkscape:version=&#34;1.2.2 (b0a8486541, 2022-12-01)&#34;
+   sodipodi:docname=&#34;imagen.svg&#34;
+   xmlns:inkscape=&#34;http://www.inkscape.org/namespaces/inkscape&#34;
+   xmlns:sodipodi=&#34;http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd&#34;
+   xmlns=&#34;http://www.w3.org/2000/svg&#34;
+   xmlns:svg=&#34;http://www.w3.org/2000/svg&#34;&gt;
+  &lt;sodipodi:namedview
+     id=&#34;namedview7&#34;
+     pagecolor=&#34;#ffffff&#34;
+     bordercolor=&#34;#000000&#34;
+     borderopacity=&#34;0.25&#34;
+     inkscape:showpageshadow=&#34;2&#34;
+     inkscape:pageopacity=&#34;0.0&#34;
+     inkscape:pagecheckerboard=&#34;0&#34;
+     inkscape:deskcolor=&#34;#d1d1d1&#34;
+     inkscape:document-units=&#34;mm&#34;
+     showgrid=&#34;false&#34;
+     inkscape:zoom=&#34;0.79285915&#34;
+     inkscape:cx=&#34;-369.54861&#34;
+     inkscape:cy=&#34;421.26019&#34;
+     inkscape:window-width=&#34;1920&#34;
+     inkscape:window-height=&#34;1062&#34;
+     inkscape:window-x=&#34;0&#34;
+     inkscape:window-y=&#34;18&#34;
+     inkscape:window-maximized=&#34;1&#34;
+     inkscape:current-layer=&#34;layer1&#34; /&gt;
+  &lt;defs
+     id=&#34;defs2&#34;&gt;
+    &lt;inkscape:path-effect
+       effect=&#34;simplify&#34;
+       id=&#34;path-effect255&#34;
+       is_visible=&#34;true&#34;
+       lpeversion=&#34;1&#34;
+       steps=&#34;1&#34;
+       threshold=&#34;0.00632&#34;
+       smooth_angles=&#34;360&#34;
+       helper_size=&#34;0&#34;
+       simplify_individual_paths=&#34;false&#34;
+       simplify_just_coalesce=&#34;false&#34; /&gt;
+    &lt;inkscape:path-effect
+       effect=&#34;simplify&#34;
+       id=&#34;path-effect251&#34;
+       is_visible=&#34;true&#34;
+       lpeversion=&#34;1&#34;
+       steps=&#34;1&#34;
+       threshold=&#34;0.00632&#34;
+       smooth_angles=&#34;360&#34;
+       helper_size=&#34;0&#34;
+       simplify_individual_paths=&#34;false&#34;
+       simplify_just_coalesce=&#34;false&#34; /&gt;
+    &lt;inkscape:path-effect
+       effect=&#34;simplify&#34;
+       id=&#34;path-effect247&#34;
+       is_visible=&#34;true&#34;
+       lpeversion=&#34;1&#34;
+       steps=&#34;1&#34;
+       threshold=&#34;0.00632&#34;
+       smooth_angles=&#34;360&#34;
+       helper_size=&#34;0&#34;
+       simplify_individual_paths=&#34;false&#34;
+       simplify_just_coalesce=&#34;false&#34; /&gt;
+  &lt;/defs&gt;
+  &lt;g
+     inkscape:label=&#34;Layer 1&#34;
+     inkscape:groupmode=&#34;layer&#34;
+     id=&#34;layer1&#34;
+     transform=&#34;translate(-54.693677,-53.441748)&#34;&gt;
+    &lt;path
+       style=&#34;fill:none;stroke:#000000;stroke-width:0.116825;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;stop-color:#000000&#34;
+       d=&#34;m 61.694926,53.50016 c 0.178399,2.310797 -0.377361,4.587952 -0.898522,6.820739 -0.269586,1.154976 -0.532585,2.313915 -0.685601,3.491168&#34;
+       id=&#34;path245&#34;
+       inkscape:path-effect=&#34;#path-effect247&#34;
+       inkscape:original-d=&#34;m 61.694926,53.50016 c 0.267623,3.541744 -1.134284,6.850703 -1.584123,10.311907&#34; /&gt;
+    &lt;path
+       style=&#34;fill:none;stroke:#000000;stroke-width:0.116825;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;stop-color:#000000&#34;
+       d=&#34;m 70.30437,53.806758 c 0.230473,1.251135 -0.07568,2.525261 -0.550076,3.682775 -0.468548,1.143249 -0.952582,2.28189 -1.295727,3.472493 -0.490118,1.700554 -0.826245,3.444404 -1.401362,5.120456&#34;
+       id=&#34;path249&#34;
+       inkscape:path-effect=&#34;#path-effect251&#34;
+       inkscape:original-d=&#34;m 70.30437,53.806758 c 0.39108,2.331049 -0.798905,3.973902 -1.537308,6.163234 -0.674476,1.999814 -1.021715,4.107055 -1.709857,6.11249&#34; /&gt;
+    &lt;path
+       style=&#34;fill:none;stroke:#000000;stroke-width:0.116825;stroke-linecap:round;stroke-linejoin:round;-inkscape-stroke:none;stop-color:#000000&#34;
+       d=&#34;m 54.77382,67.517614 c -0.12275,1.707557 0.484848,3.369135 0.304382,5.087519 -0.18762,1.786505 -0.511195,3.588574 -0.189377,5.388636 0.38313,2.143008 1.08964,4.468867 2.795153,5.825858 0.804937,0.640448 1.820701,1.40492 2.853993,1.172413 0.901922,-0.202947 1.525871,-0.994372 2.052734,-1.693776 1.554671,-2.063806 2.706748,-4.393665 3.820878,-6.712208 1.01945,-2.12151 1.915773,-4.300457 2.968218,-6.40636&#34;
+       id=&#34;path253&#34;
+       inkscape:path-effect=&#34;#path-effect255&#34;
+       inkscape:original-d=&#34;m 54.77382,67.517614 c -0.118232,1.404205 0.356228,2.779196 0.349154,4.176051 -0.0082,1.622736 -0.456935,3.231252 -0.389955,4.852624 0.10704,2.591087 1.139825,5.116582 2.78864,7.107953 0.446536,0.53931 2.362473,1.664332 3.305068,1.263576 1.904725,-0.809819 4.328355,-5.891113 4.610142,-6.411944 1.4529,-2.685424 2.576853,-5.593989 3.942932,-8.326178&#34; /&gt;
+  &lt;/g&gt;
+&lt;/svg&gt;
+
+    &lt;/figure&gt;
+&lt;/center&gt;
+
+&lt;p&gt;Y más texto aquí&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

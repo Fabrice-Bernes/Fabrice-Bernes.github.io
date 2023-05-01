@@ -28,5 +28,8 @@
   </url><url>
     <loc>https://example.com/tags/</loc>
     <lastmod>2023-03-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://example.com/about/</loc>
+    <priority>0</priority>
   </url>
 </urlset>

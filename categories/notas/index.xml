@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Notas on Notas mal escritas</title>
-    <link>https://example.com/categories/notas/</link>
+    <link>https://fabrice-bernes.github.io/categories/notas/</link>
     <description>Recent content in Notas on Notas mal escritas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 31 Mar 2023 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/notas/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fabrice-bernes.github.io/categories/notas/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Instalar Arch</title>
-      <link>https://example.com/post/instalar_arch/</link>
+      <link>https://fabrice-bernes.github.io/post/instalar_arch/</link>
       <pubDate>Fri, 31 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/post/instalar_arch/</guid>
+      <guid>https://fabrice-bernes.github.io/post/instalar_arch/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Nota:&lt;/strong&gt; Esta guía la escribí hace mucho y puede tener errores o poco detalle en partes importantes.&lt;/p&gt;
 &lt;h2 id=&#34;antes-que-nada&#34;&gt;Antes que nada&lt;/h2&gt;
 &lt;ul&gt;

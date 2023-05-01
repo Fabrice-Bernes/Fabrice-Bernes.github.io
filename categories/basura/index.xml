@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Basura on Notas mal escritas</title>
-    <link>https://example.com/categories/basura/</link>
+    <link>https://fabrice-bernes.github.io/categories/basura/</link>
     <description>Recent content in Basura on Notas mal escritas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Fri, 31 Mar 2023 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://example.com/categories/basura/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://fabrice-bernes.github.io/categories/basura/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Prueba</title>
-      <link>https://example.com/post/prueba/prueba/</link>
+      <link>https://fabrice-bernes.github.io/post/prueba/prueba/</link>
       <pubDate>Fri, 31 Mar 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://example.com/post/prueba/prueba/</guid>
+      <guid>https://fabrice-bernes.github.io/post/prueba/prueba/</guid>
       <description>&lt;h2 id=&#34;matemáticas&#34;&gt;Matemáticas&lt;/h2&gt;
 &lt;p&gt;$$\frac{1}{4\pi\epsilon_{0}}$$&lt;/p&gt;
 &lt;h2 id=&#34;imágenes&#34;&gt;Imágenes&lt;/h2&gt;

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <title>Página principal</title>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#000084" />
+    <link rel="icon" href="https://fabrice-bernes.github.io/img/favicon.svg" type="image/png" />
+    <link rel="canonical" href="https://fabrice-bernes.github.io/">
+    
+    
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse"></button>
+            <a class="brand" href="https://fabrice-bernes.github.io/">Página principal</a>
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                    
+                        
+                            <li>
+                                <a href="/about/">
+                                    
+                                    <span>Sobre el sitio</span>
+                                </a>
+                            </li>
+                        
+                    
+                        
+                            <li>
+                                <a href="/post/">
+                                    
+                                    <span>Notas</span>
+                                </a>
+                            </li>
+                        
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav><div id="content" class="container">
+
+<div class="row-fluid navmargin">
+    <div class="page-header">
+        <h1>git 1 - Para qué y por qué usar git - Thu, Jun 1, 2023</h1>
+    </div>
+    <p class="lead">Sobre la idea de usar un programa para control de versiones. En particular git.</p>
+    <h1 id="la-clase-de-inconvenientes-que-se-arreglan-con-git">La clase de inconvenientes que se arreglan con git</h1>
+<h2 id="cambios-experimentales-varias-versiones-de-lo-mismo">Cambios experimentales, varias versiones de lo mismo</h2>
+<p>A veces, cuando se está trabajando en algo
+(sobre todo código, pero también pasa con textos en general o
+con esquemas, o con cualquier trabajo que se tenga que replantear constantemente),
+tenemos que hacer cambios que no estamos seguros de que se van a quedar,
+o que provocan conflictos con otras partes del trabajo.</p>
+<p>Lo que yo hacía antes cuando tenía problemas como esos,
+era crear una copia de mis archivos, y hacer y probar cambios en ella.
+El problema con eso, es que después hacía una copia de la copia, y luego
+una copia de esa última, y si me arrepiento de lo que estaba probando,
+ponía todo en un directorio, hacía una copia de él, y trabajaba sobre ella.</p>
+<p>Al final tenía un espacio de trabajo como este:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>├── antes_de_S
+</span></span><span style="display:flex;"><span>│   ├── asdflkj.py
+</span></span><span style="display:flex;"><span>│   └── script.py
+</span></span><span style="display:flex;"><span>├── script_BUENO.py
+</span></span><span style="display:flex;"><span>├── script_ESTETALVEZ.py
+</span></span><span style="display:flex;"><span>├── script_MALO.py
+</span></span><span style="display:flex;"><span>├── script_MEGUSTA.py
+</span></span><span style="display:flex;"><span>├── script_ORIG2.py
+</span></span><span style="display:flex;"><span>├── script_ORIG.py
+</span></span><span style="display:flex;"><span>└── script_ORIG.py.bak
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>2 directories, 9 files
+</span></span></code></pre></div><p>Son 9 archivos para un script. Todos muy parecidos (demasiado como para distinguirlos a ojo),
+pero cada uno con sus defectos. Los nombres no ayudan,
+y si dejo de trabajar en ellos por un tiempo, seguramente
+voy a olvidar qué estaba planeando hacer con ellos.</p>
+<p>Otra cosa que hacía, y que todavía encuentro en mis archivos de configuración viejos, es
+comentar cosas que quiero mejorar. Eso hace que todo sea menos claro y da problemas cuando
+sólo comento algo parcialmente o cuando comento grupos de cosas que están relacionadas entre si.
+Al final es muy difícil entender qué grupos de líneas se deben
+comentar/descomentar al mismo tiempo.</p>
+<p>En esta imagen se puede ver un ejemplo de algo como eso:</p>
+<p><img src="upl.png" alt="./upl.png"></p>
+<p>La función <code>toggle_state()</code> que definí en las líneas 19 a 31 no me gustó.
+Por eso está comentada y vuelta a definir en las líneas 54 a 67,
+pero si quisiera probar la versión comentada, no basta con
+descomentar un grupo y comentar el otro, sino que además tendría que cambiar las
+líneas 51 y 52 porque el alcance (scope) de la función es distinto en ambas versiones.</p>
+<p>Hacer un nuevo par de líneas debajo de la 51 y 52 con el código apropiado para la
+otra versión de <code>toggle_state()</code> es aún más problemático, porque
+cuando haga lo mismo para alguna otra función, tendré que saber qué combinación de
+comentarios hay que cambiar para revertir la versión de una de las dos funciones sin
+mezclar.</p>
+<p>Con git podemos tener versiones distintas de un mismo proyecto de una forma que no cree
+confusión, y que permita cambiar entre ellas de una manera ordenada,
+o comparar diferencias y crear <em>parches</em> con instrucciones para pasar de un archivo a otro,
+legibles tanto para un humano, como para la computadora.
+En la siguiente imagen se muestra de forma exagerada cómo se puede tratar el problema de
+la imagen anterior usando git:</p>
+<p><img src="upl3.png" alt="./upl3.png"></p>
+<p>Lo que hice fue crear dos ramas, una con cada versión de la función, y luego
+mostrar un <em>diff</em> entre el primer commit de cada rama.
+Para reemplazar la función, basta con quitar las palabras marcadas con rojo, y
+agregar las palabras marcadas con verde.
+No es necesario hacer eso a mano. En este caso, bastaría con correr
+<code>git checkout toggle_state.v1</code> para usar la versión original.</p>
+<p>En realidad ese tratamiento es excesivamente complicado, pero lo hice así para omitir detalles.
+Cuando usemos <code>git</code> de verdad, no tendremos que hacer una nueva rama cada vez que
+queramos cambiar alguna definición. Siempre podemos revertir nuestros cambios o mezclarlos sin
+usar ramas.</p>
+<h2 id="evitar-comentarios-tontos">Evitar comentarios tontos</h2>
+<p>A veces agrego comentarios redundantes y que a nadie le sirven,
+porque tengo miedo de no entender la utilidad de las líneas que escribo.
+Me refiero a comentarios inútiles como:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>list_printable<span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Debe devolver una lista de la forma:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># file1.pdf &#34;ready to print&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># file2.pdf &#34;needs conversion&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># file3.pdf &#34;ready to print&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># use nullglob in case there are no matching files</span>
+</span></span><span style="display:flex;"><span>    shopt -s nullglob
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> f in *<span style="color:#ae81ff">\ </span>*; <span style="color:#66d9ef">do</span> mv <span style="color:#e6db74">&#34;</span>$f<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>f// /_<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">done</span> <span style="color:#75715e"># Convierte file\ x.pdf en file_x.pdf</span>
+</span></span><span style="display:flex;"><span>    cd <span style="color:#e6db74">${</span>SFTP_PRINTABLE<span style="color:#e6db74">}</span> <span style="color:#f92672">||</span> exit
+</span></span><span style="display:flex;"><span>    declare -a printable_list
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> file in *.<span style="color:#f92672">{</span>pdf,docx,doc,jpg,JPG,png,PNG,bmp,BMP,svg<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        printable_list<span style="color:#f92672">+=(</span><span style="color:#e6db74">${</span>file<span style="color:#e6db74">}</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>file: -4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.pdf&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            printable_list<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;Necesita convertirse&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            printable_list<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;Listo&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>SELECTED_PRINTABLE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>dialog --stdout <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --backtitle <span style="color:#e6db74">&#34;Menú principal&#34;</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --ok-label <span style="color:#e6db74">&#34;Empezar&#34;</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --cancel-label <span style="color:#e6db74">&#34;Salir&#34;</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --menu  <span style="color:#e6db74">&#34;Main menu placeholder&#34;</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>printable_list[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Las primeras 5 líneas del cuerpo de la función distraen un poco cuando se leed las demás.
+La última de esas líneas está en inglés porque viene de una sugerencia que tomé de stackoverflow
+(no recuerdo exactamente de qué pregunta, pero la encontré buscando
+cómo crear arreglos con nombres de archivos),
+y el comentario de la línea 22 debería ser obvio para alguien que escribe en <code>bash</code>.
+Yo lo puse porque sin él tal vez me detenga un rato en esa línea antes de seguir leyendo.</p>
+<p>Tanto comentarios que explican cosas obvias como aquellos que describen el funcionamiento de
+un pedazo de código se pueden <em>esconder</em> agregándolos como <em>commit messages</em>.</p>
+<p>Si hubiera escrito ese pedazo de código como parte de un repositorio, entonces tendría algo
+más compacto y agradable a la vista:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>list_printable<span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>    shopt -s nullglob
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> f in *<span style="color:#ae81ff">\ </span>*; <span style="color:#66d9ef">do</span> mv <span style="color:#e6db74">&#34;</span>$f<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>f// /_<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>; <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>    cd <span style="color:#e6db74">${</span>SFTP_PRINTABLE<span style="color:#e6db74">}</span> <span style="color:#f92672">||</span> exit
+</span></span><span style="display:flex;"><span>    declare -a printable_list
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> file in *.<span style="color:#f92672">{</span>pdf,docx,doc,jpg,JPG,png,PNG,bmp,BMP,svg<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>        printable_list<span style="color:#f92672">+=(</span><span style="color:#e6db74">${</span>file<span style="color:#e6db74">}</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>file: -4<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> !<span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;.pdf&#34;</span> <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>            printable_list<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;Necesita convertirse&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>            printable_list<span style="color:#f92672">+=(</span><span style="color:#e6db74">&#34;Listo&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>SELECTED_PRINTABLE<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>dialog --stdout <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --backtitle <span style="color:#e6db74">&#34;Menú principal&#34;</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --ok-label <span style="color:#e6db74">&#34;Empezar&#34;</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --cancel-label <span style="color:#e6db74">&#34;Salir&#34;</span><span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    --menu  <span style="color:#e6db74">&#34;Main menu placeholder&#34;</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>printable_list[@]<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span></code></pre></div><p>Y podría ver mis explicaciones y comentarios revisando mi historial de commits:</p>
+<p><img src="upl2.png" alt="./upl2.png"></p>
+<p>La imagen de arriba tiene muchos detalles que por ahora no nos interesan,
+pero en ella resalto que hay un commit llamado <em>Add list_printable() function</em> (<strong>1</strong> verde),
+con un mensaje (<strong>2</strong> verde) que tiene la explicación que anteriormente era un comentario,
+y un commit <em>list_printable: convert &lsquo;file\ x.pdf&rsquo; to &lsquo;file_x.pdf&rsquo;</em> (<strong>3</strong> azul), cuyo
+<em>diff</em> muestra claramente qué línea se encarga de cambiar espacios por guiones bajos
+(<strong>4</strong> azul).
+Así, tenemos un código mucho más limpio, pero al mismo tiempo
+conservamos todas nuestras notas,y además ahora están en orden cronológico.</p>
+<h2 id="otras-ventajas">Otras ventajas</h2>
+<p>Un código limpio y con una lista de cambios y adiciones en orden cronológico,
+así como la capacidad de revertir cambios por más grandes que sean, sin perder nada,
+hacen que conforme uno se acostumbra a llevar un control de versiones, sea más fácil
+crear proyectos grandes pero estructurados en secciones pequeñas y fáciles de entender.</p>
+<p>Incluso si no nos tomamos la molestia de
+planear una estructura general o escribir pseudocódigo,
+pensar en el <em>commit message</em> que tendrán las líneas que estamos escribiendo,
+hace que el código no sea tan desastroso.</p>
+<p>Además, <em>git</em> está pensado para permitir que varias personas trabajen en un mismo proyecto,
+cada quién a su ritmo, y unificar el trabajo de todos cada vez que se requiera,
+o dejar que alguien trabaje en grandes cambios sin interrumpir al resto, a menos que
+alguien esté interesado en incluir esos grandes cambios antes de que sean oficiales.
+Todo esto sin crear basura o desorden en los directorios de trabajo de cada quién.</p>
+<h1 id="el-propósito-de-esta-guía">El propósito de esta guía</h1>
+<p>Casi todas las guías que he visto sobre cómo usar <code>git</code> son para gente que se dedica a
+la programación, o bien son tan estrictas o específicas, que es difícil <strong>empezar</strong> a
+usar git para trabajo personal.</p>
+<p>Por eso voy a hacer una serie de notas con mi forma de usar <code>git</code>, en la que menciono
+los errores que suelo cometer, las prácticas que no me gusta seguir, y los detalles que
+las guías avanzadas ignoran, así como las confusiones que he tenido al seguir guías para
+principiantes o para usos específicos.</p>
+
+    <h4><a href="https://fabrice-bernes.github.io/">Volver a la página principal</a></h4>
+</div>
+
+
+        </div><footer class="container">
+    <hr class="soften">
+    <p>
+&copy; 
+
+    Fabrice Bernès Carmona
+
+<span id="thisyear">2023</span>
+
+
+</p>
+    <p class="text-center">
+        <a href="https://github.com/Fabrice-Bernes">GitHub</a> 
+        
+        <a href="mailto:Fabrice.Bernes@protonmail.com">email</a> 
+        
+        
+    </p>
+</footer>
+
+</body><link rel="stylesheet" href="/css/bootstrap.css">
+<link rel="stylesheet" href="/css/bootstrap-responsive.css">
+<link rel="stylesheet" href="/css/style.css">
+
+<script src="/js/jquery.js"></script>
+<script src="/js/bootstrap-386.js"></script>
+<script src="/js/bootstrap-transition.js"></script>
+<script src="/js/bootstrap-alert.js"></script>
+<script src="/js/bootstrap-modal.js"></script>
+<script src="/js/bootstrap-dropdown.js"></script>
+<script src="/js/bootstrap-scrollspy.js"></script>
+<script src="/js/bootstrap-tab.js"></script>
+<script src="/js/bootstrap-tooltip.js"></script>
+<script src="/js/bootstrap-popover.js"></script>
+<script src="/js/bootstrap-button.js"></script>
+<script src="/js/bootstrap-collapse.js"></script>
+<script src="/js/bootstrap-carousel.js"></script>
+<script src="/js/bootstrap-typeahead.js"></script>
+<script src="/js/bootstrap-affix.js"></script>
+<script>
+    _386 = { 
+        fastLoad: true ,
+        onePass: false , 
+        speedFactor: 1 
+    };
+
+    
+    function ThisYear() {
+        document.getElementById('thisyear').innerHTML = new Date().getFullYear();
+    };
+</script>
+</html>

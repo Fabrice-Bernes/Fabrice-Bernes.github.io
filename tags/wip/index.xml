@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>WIP on Página principal</title>
+    <link>https://fabrice-bernes.github.io/tags/wip/</link>
+    <description>Recent content in WIP on Página principal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 01 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://fabrice-bernes.github.io/tags/wip/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>git 1 - Para qué y por qué usar git</title>
+      <link>https://fabrice-bernes.github.io/post/git_1/</link>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://fabrice-bernes.github.io/post/git_1/</guid>
+      <description>La clase de inconvenientes que se arreglan con git Cambios experimentales, varias versiones de lo mismo A veces, cuando se está trabajando en algo (sobre todo código, pero también pasa con textos en general o con esquemas, o con cualquier trabajo que se tenga que replantear constantemente), tenemos que hacer cambios que no estamos seguros de que se van a quedar, o que provocan conflictos con otras partes del trabajo.</description>
+    </item>
+    
+  </channel>
+</rss>

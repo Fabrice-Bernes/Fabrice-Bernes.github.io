@@ -9,3 +9,14 @@ body {
 h2 {
     white-space: normal;
 }
+
+.highlight-wrapper {
+    color: #24ee24;
+    position: relative;
+}
+
+.highlight-link {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}

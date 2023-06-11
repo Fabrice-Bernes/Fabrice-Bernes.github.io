@@ -10,6 +10,7 @@
     <link rel="canonical" href="https://fabrice-bernes.github.io/">
     
     
+    <script type="text/javascript" src="/js/collapsible-block.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -60,6 +61,82 @@
 </center>
 
 <p>Y más texto aquí</p>
+<div class="highlight-wrapper">
+    <div class="highlight-before">bash</div>
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>package main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>import <span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;math/rand&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;time&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>type Moo struct <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    Cow   int
+</span></span><span style="display:flex;"><span>    Sound string
+</span></span><span style="display:flex;"><span>    Tube  chan bool
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// A cow will moo <span style="color:#66d9ef">until</span> it is being milked
+</span></span><span style="display:flex;"><span>func cow<span style="color:#f92672">(</span>num int, mootube chan Moo<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    tube :<span style="color:#f92672">=</span> make<span style="color:#f92672">(</span>chan bool<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">select</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> mootube &lt;- Moo<span style="color:#f92672">{</span>num, <span style="color:#e6db74">&#34;moo&#34;</span>, tube<span style="color:#f92672">}</span>:
+</span></span><span style="display:flex;"><span>            fmt.Println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Cow number&#34;</span>, num, <span style="color:#e6db74">&#34;mooed through the mootube&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            &lt;-tube
+</span></span><span style="display:flex;"><span>            fmt.Println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Cow number&#34;</span>, num, <span style="color:#e6db74">&#34;is being milked and stops mooing&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            mootube &lt;- Moo<span style="color:#f92672">{</span>num, <span style="color:#e6db74">&#34;mooh&#34;</span>, nil<span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>            fmt.Println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Cow number&#34;</span>, num, <span style="color:#e6db74">&#34;moos one last time in relief&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span>
+</span></span><span style="display:flex;"><span>        default:
+</span></span><span style="display:flex;"><span>            fmt.Println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Cow number&#34;</span>, num, <span style="color:#e6db74">&#34;mooed through the mootube and was ignored&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            time.Sleep<span style="color:#f92672">(</span>time.Duration<span style="color:#f92672">(</span>rand.Int31n<span style="color:#f92672">(</span>1000<span style="color:#f92672">))</span> * time.Millisecond<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// The farmer wants to turn on all the milktubes to stop the mooing
+</span></span><span style="display:flex;"><span>func farmer<span style="color:#f92672">(</span>numcows int, mootube chan Moo, farmertube chan string<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    fmt.Println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Farmer starts listening to the mootube&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> unrelievedCows :<span style="color:#f92672">=</span> numcows; unrelievedCows &gt; 0; <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        moo :<span style="color:#f92672">=</span> &lt;-mootube
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> moo.Sound <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;mooh&#34;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            fmt.Println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Farmer heard a moo of relief from cow number&#34;</span>, moo.Cow<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            unrelievedCows--
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span> <span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>            fmt.Println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Farmer heard a&#34;</span>, moo.Sound, <span style="color:#e6db74">&#34;from cow number&#34;</span>, moo.Cow<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            time.Sleep<span style="color:#f92672">(</span>2e9<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            fmt.Println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Farmer starts the milking machine on cow number&#34;</span>, moo.Cow<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            moo.Tube &lt;- true
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    fmt.Println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Farmer doesn&#39;t hear a single moo anymore. All done!&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    farmertube &lt;- <span style="color:#e6db74">&#34;yey!&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>// The farm starts out with mooing cows that wants to be milked
+</span></span><span style="display:flex;"><span>func runFarm<span style="color:#f92672">(</span>numcows int<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    farmertube :<span style="color:#f92672">=</span> make<span style="color:#f92672">(</span>chan string<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    mootube :<span style="color:#f92672">=</span> make<span style="color:#f92672">(</span>chan Moo<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> cownum :<span style="color:#f92672">=</span> 0; cownum &lt; numcows; cownum++ <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        go cow<span style="color:#f92672">(</span>cownum, mootube<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>    go farmer<span style="color:#f92672">(</span>numcows, mootube, farmertube<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    farmerSaid :<span style="color:#f92672">=</span> &lt;-farmertube
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> farmerSaid <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;yey!&#34;</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>        fmt.Println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;All cows are happy.&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>func main<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>    runFarm<span style="color:#f92672">(</span>4<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    fmt.Println<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;done&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span></span></span></code></pre></div>
+    
+</div>
+
 
     <h4><a href="https://fabrice-bernes.github.io/">Volver a la página principal</a></h4>
 </div>

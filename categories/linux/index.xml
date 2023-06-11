@@ -6,9 +6,18 @@
     <description>Recent content in Linux on Página principal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 01 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://fabrice-bernes.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://fabrice-bernes.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>git 1 - Para qué y por qué usar git</title>
+      <title>Git 2</title>
+      <link>https://fabrice-bernes.github.io/post/git_2/</link>
+      <pubDate>Sat, 10 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://fabrice-bernes.github.io/post/git_2/</guid>
+      <description>TODO </description>
+    </item>
+    
+    <item>
+      <title>Git 1 - Para qué y por qué usar git</title>
       <link>https://fabrice-bernes.github.io/post/git_1/</link>
       <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
       

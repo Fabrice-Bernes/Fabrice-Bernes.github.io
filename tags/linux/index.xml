@@ -37,7 +37,8 @@ Para evitar problemas, escogemos la disposición de teclado adecuada, asignando 
       
       <guid>https://fabrice-bernes.github.io/post/prueba/</guid>
       <description>Matemáticas $$\frac{1}{4\pi\epsilon_{0}}$$
-Imágenes Y más texto aquí</description>
+Imágenes Y más texto aquí
+bash package main import ( &amp;#34;fmt&amp;#34; &amp;#34;math/rand&amp;#34; &amp;#34;time&amp;#34; ) type Moo struct { Cow int Sound string Tube chan bool } // A cow will moo until it is being milked func cow(num int, mootube chan Moo) { tube := make(chan bool) for { select { case mootube &amp;lt;- Moo{num, &amp;#34;moo&amp;#34;, tube}: fmt.Println(&amp;#34;Cow number&amp;#34;, num, &amp;#34;mooed through the mootube&amp;#34;) &amp;lt;-tube fmt.Println(&amp;#34;Cow number&amp;#34;, num, &amp;#34;is being milked and stops mooing&amp;#34;) mootube &amp;lt;- Moo{num, &amp;#34;mooh&amp;#34;, nil} fmt.</description>
     </item>
     
   </channel>

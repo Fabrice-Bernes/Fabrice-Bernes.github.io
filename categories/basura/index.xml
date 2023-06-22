@@ -13,9 +13,12 @@
       <pubDate>Fri, 31 Mar 2023 00:00:00 +0000</pubDate>
       
       <guid>https://fabrice-bernes.github.io/post/prueba/</guid>
-      <description>Matemáticas $$\frac{1}{4\pi\epsilon_{0}}$$
-Imágenes Y más texto aquí
-bash package main import ( &amp;#34;fmt&amp;#34; &amp;#34;math/rand&amp;#34; &amp;#34;time&amp;#34; ) type Moo struct { Cow int Sound string Tube chan bool } // A cow will moo until it is being milked func cow(num int, mootube chan Moo) { tube := make(chan bool) for { select { case mootube &amp;lt;- Moo{num, &amp;#34;moo&amp;#34;, tube}: fmt.Println(&amp;#34;Cow number&amp;#34;, num, &amp;#34;mooed through the mootube&amp;#34;) &amp;lt;-tube fmt.Println(&amp;#34;Cow number&amp;#34;, num, &amp;#34;is being milked and stops mooing&amp;#34;) mootube &amp;lt;- Moo{num, &amp;#34;mooh&amp;#34;, nil} fmt.</description>
+      <description>No hay nada interesante aquí. Pero a medida que agrego shortcodes y cambio el estilo del sitio, pruebo que todo funcione usando este post. Si por ejemplo la sección de imágenes no tiene imágenes, ya sé que algo está roto.
+Estilos de fuente Esta línea está en letras normales
+Esta línea está en negritas
+Esta línea está en itálicas
+Esta línea está en el estilo de un comando
+Matemáticas Escribir lo siguiente: $$\vector{F}_{q&#39; \rightarrow q} = \frac{1}{4\pi\epsilon_{0}}\frac{qq&#39;}{r^2}\hat{\textbf{r}}$$</description>
     </item>
     
   </channel>
